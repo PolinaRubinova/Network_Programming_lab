@@ -47,7 +47,6 @@ fun Application.configureValidationReceiverRouting() {
 fun Application.configureRouting() {
     routing {
         get("/") {
-            println(BlockChain.blockChain.map { listOf(it.index, it.prevHash, it.hash).joinToString(separator = " ") })
             call.respond(BlockChain.blockChain.map { listOf(it.index, it.prevHash, it.hash).joinToString(separator = " ") })
         }
     }

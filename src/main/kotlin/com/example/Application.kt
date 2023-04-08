@@ -50,7 +50,6 @@ fun Application.module() {
     }
     configureNotificationReceiverRouting(object : NotificationReceivedCallback {
         override fun onNotificationReceived() {
-            println("Notification received => restarting coroutine and mining")
             job.cancel()
             job = startMining(this@module)
         }
