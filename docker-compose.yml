@@ -1,0 +1,23 @@
+version: "3.8"
+services:
+  server1:
+    image: rubinovapv/blockchain
+    container_name: server1
+    network_mode: host
+    command: java -jar /blockchain/build/libs/com.example.network_programming_lab-0.0.1.jar 8080 8081 8082 1
+    ports:
+      - 8080:8080
+  server2:
+    image: rubinovapv/blockchain
+    container_name: server2
+    network_mode: host
+    command: java -jar /blockchain/build/libs/com.example.network_programming_lab-0.0.1.jar 8081 8080 8082 0
+    ports:
+      - 8081:8081
+  server3:
+    image: rubinovapv/blockchain
+    container_name: server3
+    network_mode: host
+    command: java -jar /blockchain/build/libs/com.example.network_programming_lab-0.0.1.jar 8082 8081 8080 0
+    ports:
+      - 8082:8082
